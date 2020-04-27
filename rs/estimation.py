@@ -34,7 +34,6 @@ class cards:
         create deck fo game
         """
         for card in self.cards['figur_p']:
-            self.gams_card.append( card )
             for color in list( self.cards['marriage_p'].keys() ):
                 self.gams_card.append( card + ' ' + color )
         return self.gams_card
@@ -44,9 +43,9 @@ class cards:
         First hend cards
         """
         random.shuffle( self.gams_card )
-        self.playerheand += [self.gams_card[:self.gamesruls['heand']]]
-        self.playerheand += [self.gams_card[self.gamesruls['heand']:20]]
-        self.playerheand += [self.gams_card[20:]]
+        self.playerheand += [self.gams_card[:10]]
+        self.playerheand += [self.gams_card[10:20]]
+        self.playerheand += [self.gams_card[21:]]
 
         return self.playerheand
 
