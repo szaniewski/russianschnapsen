@@ -1,11 +1,11 @@
 import random
+from . import scoring
 
 class cards:
 
     def __init__( self ):
         self.playerheand = []
         self.gams_card = []
-        self.cardonstck = []
         self.cards = {
             'figur' : 4,
             'figur_p' : {
@@ -33,7 +33,8 @@ class cards:
         The deck
         create deck fo game
         """
-        for card in list( self.cards['figur_p'].keys() ):
+        for card in self.cards['figur_p']:
+            self.gams_card.append( card )
             for color in list( self.cards['marriage_p'].keys() ):
                 self.gams_card.append( card + ' ' + color )
         return self.gams_card
@@ -44,5 +45,15 @@ class cards:
         """
         random.shuffle( self.gams_card )
         self.playerheand += [self.gams_card[:self.gamesruls['heand']]]
-        self.playerheand += [self.gams_card[self.gamesruls['heand']:]]
-        self.cardonstck = self.gams_card[self.gamesruls['heand'] * 2:]
+        self.playerheand += [self.gams_card[self.gamesruls['heand']:20]]
+        self.playerheand += [self.gams_card[20:]]
+
+        return self.playerheand
+
+    def playerscoring( self ):
+        """
+        Cal player point in headn
+        """
+        self.s = scoring.point( self.cards, self.playerheand )
+        point = self.s.cal()
+        return point
