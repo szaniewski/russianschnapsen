@@ -3,8 +3,10 @@ from . import scoring
 
 class cards:
 
-    def __init__( self ):
+    def __init__( self, playernams ):
+        self.playername = playernams  #['Adam', 'Ola']
         self.playerheand = []
+        self.players = []
         self.gams_card = []
         self.cards = {
             'figur' : 4,
@@ -56,3 +58,11 @@ class cards:
         self.s = scoring.point( self.cards, self.playerheand )
         point = self.s.cal()
         return point
+
+    def player( self ):
+        self.deck()
+        s = self.shuffling()
+        p = self.playerscoring()
+
+        self.players = {'player': self.playername[0], 'cards': s[0], 'points': p[2]}, {'player': self.playername[1], 'cards': s[1], 'points': p[1]}, {'cards': s[2], 'points': p[0]}
+        return self.players

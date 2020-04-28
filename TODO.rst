@@ -1,0 +1,4 @@
+TODO
+====
+
+* estimation opponent headn

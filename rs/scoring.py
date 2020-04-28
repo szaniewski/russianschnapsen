@@ -4,7 +4,7 @@ class point:
         self.incards = 0
         self.cards = cards
         self.data = data
-        self.stock = []
+        self.stocks = []
 
     def cal( self ):
 
@@ -21,5 +21,6 @@ class point:
                         self.incards += 60
                     elif p.find('king pikes') == 0 and p.find('ober pikes'):
                         self.incards += 40
-            self.stock.append( self.incards )
-        return self.stock
+            self.stocks.append( [self.incards] )
+
+        return self.stocks
