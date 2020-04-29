@@ -12,7 +12,7 @@ import rs.game as rs
 
 #Start gemse 
 # @playernams - arr names of player
-c = rs.cards( playernams )
+c = rs.cards( playernames )
 
 print( c.player() )
 
