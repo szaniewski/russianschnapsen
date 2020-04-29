@@ -1,6 +1,7 @@
 import random
 import math
 from . import scoring
+from . import skirmish
 
 class cards:
 
@@ -83,3 +84,8 @@ class cards:
         self.pro  = math.factorial(n) /  math.factorial(k) * math.factorial( n - k )
 
         return self.pro
+
+    def winers( self, opponents ):
+        self.play = skirmish.play( self.cards.get('figur_p'), opponents, self.playernames )
+
+        return self.play.cal()
