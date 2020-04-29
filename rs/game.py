@@ -86,6 +86,9 @@ class cards:
         return self.pro
 
     def winers( self, opponents, *trumps ):
-        self.play = skirmish.play( self.cards.get('figur_p'), opponents, self.playernames )
+        if trumps:
+            self.play = skirmish.play( self.cards.get('figur_p'), opponents, self.playernames, trumps )
+        else:
+            self.play = skirmish.play( self.cards.get('figur_p'), opponents, self.playernames )
 
         return self.play.result()
