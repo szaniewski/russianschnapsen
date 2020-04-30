@@ -2,6 +2,7 @@ import random
 import math
 from . import scoring
 from . import skirmish
+from . import rools
 
 class cards:
 
@@ -50,9 +51,19 @@ class cards:
         random.shuffle( self.gams_card )
         self.playerheand += [self.gams_card[:10]]
         self.playerheand += [self.gams_card[10:20]]
-        self.playerheand += [self.gams_card[21:]]
+        self.playerheand += [self.gams_card[20:]]
 
         return self.playerheand
+
+    def restartshuffling( self ):
+        s = self.shuffling()
+        r = rools.roolsgame( self.playerheand )
+        r.finding_nines()
+
+        if r == True:
+            self.shuffling()
+        else:
+            return s
 
     def playerscoring( self ):
         """
@@ -64,7 +75,7 @@ class cards:
 
     def player( self ):
         self.deck()
-        s = self.shuffling()
+        s = self.restartshuffling()
         p = self.playerscoring()
 
         self.players = {'player': self.playernames[0], 'cards': s[0], 'points': p[2]}, {'player': self.playernames[1], 'cards': s[1], 'points': p[1]}, {'cards': s[2], 'points': p[0]}
