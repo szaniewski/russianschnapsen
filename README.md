@@ -3,7 +3,7 @@ Estymiation Yours card in Russian Schnapsen https://en.wikipedia.org/wiki/Russia
 
 
 # Status / Version
-Development (Beta) / 0.1.0
+Development (Beta) / 0.2.0
 
 # how to use
 ```Python
