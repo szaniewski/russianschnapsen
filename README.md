@@ -1,4 +1,14 @@
-# Russian Schnapsen - symulator
+# Russuan Schnapsen - game
+
+# Status / Version
+Development (Beta) / 0.1.0
+
+Desktop game screen
+
+![picture](http://roch.lh.pl/git/russuan_schnapsen/hallo.png)
+![picture](http://roch.lh.pl/git/russuan_schnapsen/card.png)
+
+# Russian Schnapsen - module
 Estymiation Yours card in Russian Schnapsen https://en.wikipedia.org/wiki/Russian_Schnapsen
 
 
@@ -31,10 +41,3 @@ print( c.winers(opponents) )
 'Adam'
 
 ```
-
-# Russuan Schnapsen
-
-Desktop game screen
-
-![picture](http://roch.lh.pl/git/russuan_schnapsen/hallo.png)
-![picture](http://roch.lh.pl/git/russuan_schnapsen/card.png)
