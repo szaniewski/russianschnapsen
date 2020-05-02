@@ -3,7 +3,7 @@ Estymiation Yours card in Russian Schnapsen https://en.wikipedia.org/wiki/Russia
 
 
 # Status / Version
-Development (Beta) / 0.2.0
+Development (Beta) / 0.2.5
 
 # how to use
 ```Python
@@ -31,3 +31,10 @@ print( c.winers(opponents) )
 'Adam'
 
 ```
+
+# Russuan Schnapsen
+
+Desktop game screen
+
+![picture](http://roch.lh.pl/git/russuan_schnapsen/hallo.png)
+![picture](http://roch.lh.pl/git/russuan_schnapsen/card.png)
