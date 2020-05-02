@@ -1,5 +1,5 @@
-import rs.game as rs
 import tkinter as tk
+import rs.game as rs
 
 class satup:
     def __init__( self ):
@@ -37,10 +37,3 @@ class satup:
         start_play_btn.place(x = 10, y = 50)
 
         tk.mainloop()
-
-def main():
-    s = satup()
-    return s.usersname()
-
-if __name__ == "__main__":
-    main()
