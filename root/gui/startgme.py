@@ -4,6 +4,15 @@ import rs.game as rs
 class satup:
     def __init__( self ):
         self.playcard = []
+        self.window = tk.Tk()
+
+    def characters( self ):
+        self.king = tk.PhotoImage( file='gui/gfx/characters/king.gif' )
+        return self.king
+
+    def creatcanvas( self ):
+        self.can = tk.Canvas( self.window , width=500, height=500 )
+        tk.Canvas.create_image(50, 10, characters )
 
     def carddela( self ):
         self.playername = self.playernames_input.get()
@@ -16,14 +25,14 @@ class satup:
             self.usernames.destroy()
             self.playernames_input.destroy()
             self.start_play_btn.destroy()
+            self.creatcanvas()
 
         print( self.playcard[0].get('cards') )
-        self.cardonheadn( self.playcard[0].get('cards') )
+       # self.cardonheand( self.playcard[0].get('cards') )
         return self.playcard
 
     def satrtgame( self ):
 
-        self.window = tk.Tk()
         self.window.title( 'Russian Schnapsen - game' )
         self.window.geometry('500x500')
         self.label = tk.Label( self.window )
@@ -43,10 +52,7 @@ class satup:
         self.start_play_btn.place(x = 10, y = 50)
         tk.mainloop()
 
-    def cardonheadn( self, card ):
-        pos_start_y = 10
-        for c in card:
-            self.start_play_btn = tk.Button(self.window, text = c, command = self.carddela )
-            self.start_play_btn.pack()
-            self.start_play_btn.place(x = 10, y = pos_start_y)
-            pos_start_y = pos_start_y + 40
+    def selectedcard( self, cardname):
+        self.selected = cardname
+        print( self.selected )
+        return self.selected
