@@ -4,7 +4,6 @@ import gui.startgme as roon
 
 def main():
     s = roon.satup()
-    return s.usersname()
+    return s.satrtgame()
 
-if __name__ == "__main__":
-    main()
+print( main() )
