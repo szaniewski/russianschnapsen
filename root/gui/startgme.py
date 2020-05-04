@@ -43,15 +43,37 @@ class satup:
         self.start_play_btn.place(x = 10, y = 50)
         tk.mainloop()
 
-    def select_card( self, c ):
-        print('selecterd', c)
+    def select_card( self, i ):
+        print('selecterd' + i)
 
     def cardonheadn( self, card ):
-        pos_start_x = 10
-        self.character_king = tk.PhotoImage(file='gui/gfx/characters/king.gif')
+        i = 0
+        self.character = tk.PhotoImage(file='gui/gfx/characters/dragon/Idle1.png')
+        self.character_demon = tk.PhotoImage(file='gui/gfx/characters/demon/Idle1.png')
+        self.character_medusa = tk.PhotoImage(file='gui/gfx/characters/medusa/Idle1.png')
+        self.character_lizard = tk.PhotoImage(file='gui/gfx/characters/lizard/Idle1.png')
+        self.character_jinn = tk.PhotoImage(file='gui/gfx/characters/jinn/Idle1.png')
+        self.character_small_dragon = tk.PhotoImage(file='gui/gfx/characters/small_dragon/Idle1.png')
+        self.cards_btn = {}
 
         for c in card:
-            self.start_play_btn = tk.Button(self.window,  text = c, image=self.character_king, command = lambda:self.select_card( c ),  borderwidth = 0)
-            self.start_play_btn.pack()
-            self.start_play_btn.place(x = pos_start_x, y = 350 )
-            pos_start_x = pos_start_x + 80
+
+            if c.find('ass') == 0:
+                self.character = self.character
+            elif c.find('king') == 0:
+                self.character = self.character_demon
+            elif c.find('ten') == 0:
+                self.character = self.character_jinn
+            elif c.find('ober') == 0:
+                self.character = self.character_medusa
+            elif c.find('unter') == 0:
+                self.character = self.character_lizard
+            elif c.find('nine') == 0:
+                self.character = self.character_small_dragon
+
+            self.cards_btn[i]= tk.Button(self.window, text = c, image=self.character, command = lambda:self.select_card(i),  borderwidth = 0)
+            self.cards_btn[i].grid(row=1, column=i, pady=1)
+            i = i + 1
+
+
+

@@ -1,4 +1,4 @@
 root/rs/__pycache__/*
 root/gui/__pycache__/*
 test.py
-root/gui/gfx/characters/Thumbs.db
+*.db

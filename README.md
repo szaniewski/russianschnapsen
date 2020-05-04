@@ -1,12 +1,13 @@
 # Russuan Schnapsen - game
 
 # Status / Version
-Development (Beta) / 0.1.0
+Development (Beta) / 0.1.5
 
 Desktop game screen
 
-![picture](http://roch.lh.pl/git/russuan_schnapsen/hallo.png)
-![picture](http://roch.lh.pl/git/russuan_schnapsen/card.png)
+![picture](http://roch.lh.pl/git/russuan_schnapsen/hallo.png | width=100)
+![picture](http://roch.lh.pl/git/russuan_schnapsen/card.png | width=100)
+![picture](http://roch.lh.pl/git/russuan_schnapsen/character.png | width=100)
 
 # Russian Schnapsen - module
 Estymiation Yours card in Russian Schnapsen https://en.wikipedia.org/wiki/Russian_Schnapsen
