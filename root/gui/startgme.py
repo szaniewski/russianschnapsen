@@ -5,6 +5,7 @@ from PIL import ImageTk, Image
 class satup:
     def __init__( self ):
         self.playcard = []
+        self.card_value = {}
 
     def carddela( self ):
         self.playername = self.playernames_input.get()
@@ -43,12 +44,14 @@ class satup:
         self.start_play_btn.place(x = 10, y = 50)
         tk.mainloop()
 
-    def select_card( self, i ):
-        print('selecterd' + i)
+    def select_card( self, i, c ):
+        self.card_value = {'id': i, 'name': c }
+        print( self.card_value )
 
     def cardonheadn( self, card ):
         i = 0
         self.character = tk.PhotoImage(file='gui/gfx/characters/dragon/Idle1.png')
+        self.character_dragon = tk.PhotoImage(file='gui/gfx/characters/dragon/Idle1.png')
         self.character_demon = tk.PhotoImage(file='gui/gfx/characters/demon/Idle1.png')
         self.character_medusa = tk.PhotoImage(file='gui/gfx/characters/medusa/Idle1.png')
         self.character_lizard = tk.PhotoImage(file='gui/gfx/characters/lizard/Idle1.png')
@@ -57,9 +60,9 @@ class satup:
         self.cards_btn = {}
 
         for c in card:
-
+            print( c )
             if c.find('ass') == 0:
-                self.character = self.character
+                self.character = self.character_dragon
             elif c.find('king') == 0:
                 self.character = self.character_demon
             elif c.find('ten') == 0:
@@ -71,9 +74,10 @@ class satup:
             elif c.find('nine') == 0:
                 self.character = self.character_small_dragon
 
-            self.cards_btn[i]= tk.Button(self.window, text = c, image=self.character, command = lambda:self.select_card(i),  borderwidth = 0)
-            self.cards_btn[i].grid(row=1, column=i, pady=1)
+            self.cards_btn[i]= tk.Button( self.window, text = c, image=self.character, command = lambda: self.select_card(i, c),  borderwidth = 0 )
+            self.cards_btn[i].grid( row = 10, column = i , pady = 1 )
             i = i + 1
+
 
 
 
