@@ -5,7 +5,7 @@ from PIL import ImageTk, Image
 class satup:
     def __init__( self ):
         self.playcard = []
-        self.card_value = {}
+        self.cards_btn = []
 
     def carddela( self ):
         self.playername = self.playernames_input.get()
@@ -45,8 +45,10 @@ class satup:
         tk.mainloop()
 
     def select_card( self, i, c ):
-        self.card_value = {'id': i, 'name': c }
-        print( self.card_value )
+        card_selected = c
+        card_id = i
+        self.cards_btn[ card_id ].config( borderwidth = 1 )
+        print( card_selected )
 
     def cardonheadn( self, card ):
         i = 0
@@ -73,9 +75,9 @@ class satup:
                 self.character = self.character_lizard
             elif c.find('nine') == 0:
                 self.character = self.character_small_dragon
-
-            self.cards_btn[i]= tk.Button( self.window, text = c, image=self.character, command = lambda: self.select_card(i, c),  borderwidth = 0 )
-            self.cards_btn[i].grid( row = 10, column = i , pady = 1 )
+            ctr = lambda i = i, c = c:  self.select_card(i, c)
+            self.cards_btn[i]= tk.Button( self.window, text = c, image=self.character, command = ctr,  borderwidth = 0 )
+            self.cards_btn[i].grid( row = 10, column = i , pady = 10 )
             i = i + 1
 
 
