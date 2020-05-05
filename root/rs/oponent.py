@@ -31,6 +31,3 @@ class op:
                 less_power_best_choice.append( m )
                 bestchoice = less_power_best_choice[0]
         return bestchoice[1]
-
-#op = op( cards )
-#print( op.best_choice( mycards , 'king diamonds') )

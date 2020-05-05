@@ -1,7 +1,6 @@
 import tkinter as tk
 import rs.game as rs
 from PIL import ImageTk, Image
-
 class satup:
     def __init__( self ):
         self.playcard = []
@@ -12,24 +11,21 @@ class satup:
         if len( self.playername  ) == 0:
             print( 'No name' )
         else:
-            players = [ self.playername , 'Dead' ]
-            self.coregame = rs.cards( players )
+            self.players = [ self.playername , 'Dead' ]
+            self.coregame = rs.cards( self.players )
             self.playcard = self.coregame.player()
+
             self.usernames.destroy()
             self.playernames_input.destroy()
             self.start_play_btn.destroy()
+            self.usernames.destroy()
+            self.bgintro.destroy()
 
         self.cardonheadn( self.playcard[0].get('cards') )
-        print( self.playcard )
+
         return self.playcard
 
-    def satrtgame( self ):
-
-        self.window = tk.Tk()
-        self.window.title( 'Russian Schnapsen - game' )
-        self.window.geometry('850x500')
-        self.label = tk.Label( self.window )
-
+    def stage_intro( self ):
         self.usernames_hedline = tk.StringVar()
         self.usernames = tk.Label( self.window, textvariable =self.usernames_hedline )
         self.usernames_hedline.set('Gamer:')
@@ -43,15 +39,36 @@ class satup:
         self.start_play_btn = tk.Button(self.window, text = 'Start game', command = self.carddela )
         self.start_play_btn.pack()
         self.start_play_btn.place(x = 10, y = 50)
+
+    def satrtgame( self ):
+
+        self.window = tk.Tk()
+        self.window.title( 'Russian Schnapsen - game' )
+        self.window.geometry('500x500')
+        self.label = tk.Label( self.window )
+
+        self.bg = tk.PhotoImage( file='gui/gfx/bg_retro.gif' )
+        self.bgintro = tk.Label( self.window, image = self.bg )
+        self.bgintro.pack()
+        self.bgintro.pack(side='top', fill='both', expand='yes')
+
+        # self.bechemotcat_img = tk.PhotoImage( file='gui/gfx/demon.gif' )
+        # self.bechemotcat = tk.Label( self.window, image = self.bechemotcat_img )
+        # self.bechemotcat.pack()
+        # self.bechemotcat.pack(side='top', fill='both', expand='yes')
+
+        self.window.after( 1000, self.stage_intro )
         tk.mainloop()
 
     def select_card( self, i, c ):
         card_selected = c
         card_id = i
         self.cards_btn[ card_id ].config( borderwidth = 1 )
-        print( card_selected )
+        self.skirmisch( card_selected )
+        return card_selected
 
     def cardonheadn( self, card ):
+        self.window.geometry('800x500')
         i = 0
         self.character = tk.PhotoImage(file='gui/gfx/characters/dragon/Idle1.png')
         self.character_dragon = tk.PhotoImage(file='gui/gfx/characters/dragon/Idle1.png')
@@ -80,6 +97,10 @@ class satup:
             self.cards_btn[i].grid( row = 10, column = i , pady = 10 )
             i = i + 1
 
+    def skirmisch( self, card_selected ):
+        computer_card = self.coregame.autoplay( self.playcard[1], card_selected )
+        print( computer_card )
+        return computer_card
 
 
 

@@ -106,7 +106,7 @@ class cards:
 
         return self.play.result()
 
-    def autoplay( self, mycards, opponent ):
+    def autoplay( self, computercards, playercard ):
         op = oponent.op( self.cards )
-        computer_card = op.best_choice( mycards, opponent )
+        computer_card = op.best_choice( computercards, playercard )
         return computer_card
