@@ -41,4 +41,12 @@ print( c.winers(opponents) )
 #return winer name
 'Adam'
 
+# Computer play - select best card on headn
+
+computer_card = {'player': 'Cat', 'cards': ['ober hearts', 'ten diamonds', 'king clubs', 'unter hearts', 'ass diamonds', 'ass pikes', 'ober clubs', 'nine hearts', 'nine diamonds', 'ober pikes'], 'points': [94]}
+
+print( c.autoplay(computer_card, 'ass pikes') )
+
+# Resonce
+'nine diamonds'
 ```
