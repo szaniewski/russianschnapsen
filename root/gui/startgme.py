@@ -20,6 +20,7 @@ class satup:
             self.start_play_btn.destroy()
 
         self.cardonheadn( self.playcard[0].get('cards') )
+        print( self.playcard )
         return self.playcard
 
     def satrtgame( self ):
@@ -62,7 +63,6 @@ class satup:
         self.cards_btn = {}
 
         for c in card:
-            print( c )
             if c.find('ass') == 0:
                 self.character = self.character_dragon
             elif c.find('king') == 0:

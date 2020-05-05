@@ -3,6 +3,7 @@ import math
 from . import scoring
 from . import skirmish
 from . import rools
+from . import oponent
 
 class cards:
 
@@ -97,9 +98,15 @@ class cards:
         return self.pro
 
     def winers( self, opponents, *trumps ):
+
         if trumps:
             self.play = skirmish.play( self.cards.get('figur_p'), opponents, self.playernames, trumps )
         else:
             self.play = skirmish.play( self.cards.get('figur_p'), opponents, self.playernames )
 
         return self.play.result()
+
+    def autoplay( self, mycards, opponent ):
+        op = oponent.op( self.cards )
+        computer_card = op.best_choice( mycards, opponent )
+        return computer_card
